@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'sn pro';
+  src: url('fonts/SNPro/SNPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'sn pro';
+  src: url('fonts/SNPro/SNPro-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'firacode nerd';
+  src: url('fonts/firacode/FiraCodeNerdFont-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0b12;
+  --panel: rgba(23, 23, 36, 0.75);
+  --surface: rgba(31, 31, 46, 0.75);
+
+  --accent: #f6685a;
+
+  --text: #e6e6f0;
+  --muted: #9a9aad;
+}
+
+body.light {
+  --bg: #f6f6f9;
+  --panel: rgba(255, 255, 255, 0.75);
+  --surface: rgba(240, 240, 245, 0.75);
+
+  --text: #222;
+  --muted: #666;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: 'sn pro', system-ui, sans-serif;
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.bg {
+  position: fixed;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+
+  opacity: 0.35;
+
+  animation: bgfloat 20s linear infinite alternate;
+
+  z-index: -1;
+}
+
+@keyframes bgfloat {
+  0% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(2%, 2%);
+  }
+}
+
+#panel {
+  max-width: 900px;
+  margin: 80px auto;
+
+  background: var(--panel);
+
+  padding: 32px;
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.profile {
+  margin-bottom: 30px;
+}
+
+.profile h1 {
+  font-size: 42px;
+}
+
+.profile p {
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.view-toggle {
+  margin-top: 14px;
+}
+
+.view-toggle button {
+  background: var(--surface);
+
+  border: none;
+
+  padding: 8px 14px;
+
+  margin-right: 8px;
+
+  border-radius: 6px;
+
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.repo-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.repo {
+  background: var(--surface);
+
+  padding: 16px;
+
+  border-radius: 8px;
+
+  transition: transform 0.15s;
+}
+
+.repo:hover {
+  transform: translatey(-4px);
+}
+
+.repo h3 {
+  font-size: 18px;
+
+  margin-bottom: 6px;
+}
+
+.repo p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.repo a {
+  text-decoration: none;
+  color: var(--accent);
+
+  font-family: 'firacode nerd', monospace;
+
+  font-size: 13px;
+}
